@@ -15,4 +15,13 @@ public class Colisiones : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+if (other.gameObject.CompareTag("Coleccionable")){
+    UIManager.Instance.Recolectar(); 
+    Debug.Log("Recolectado los " + other.gameObject.name);
+    Destroy(other.gameObject);
+}
+    }
 }
