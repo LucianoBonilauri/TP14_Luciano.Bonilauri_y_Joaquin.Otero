@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UI; // <-- IMPORTANTE: Añadido para que reconozca el componente Image
+using UnityEngine.UI; 
 using TMPro;
 
 public class UIManager : MonoBehaviour
@@ -13,13 +13,9 @@ public class UIManager : MonoBehaviour
 
     [Header("Timer")]
     public TextMeshProUGUI timerText;
-    public Image barraTimer; // <-- CORREGIDO: Declaramos la barra para que aparezca en el Inspector
-    public float tiempoTotal = 120f; 
+    public Image barraTimer; 
+    public float tiempoTotal = 120f;
 
-    [Header("Mensajes")]
-    public GameObject panelVictoria;
-    public GameObject panelGameOver;
-    public TextMeshProUGUI mensajeRecoleccion; 
 
     private int score = 0;
     private float tiempoRestante;
@@ -35,10 +31,6 @@ public class UIManager : MonoBehaviour
     {
         tiempoRestante = tiempoTotal;
         ActualizarTextoScore();
-
-        if (panelVictoria != null) panelVictoria.SetActive(false);
-        if (panelGameOver != null) panelGameOver.SetActive(false);
-        if (mensajeRecoleccion != null) mensajeRecoleccion.gameObject.SetActive(false);
     }
 
     void Update()
@@ -50,24 +42,17 @@ public class UIManager : MonoBehaviour
         if (tiempoRestante <= 0)
         {
             tiempoRestante = 0;
-            GameOver();
         }
 
         ActualizarTextoTimer();
-        ActualizarBarra(); // <-- CORREGIDO: Ahora sí llamamos a la función en cada frame
+        ActualizarBarra(); 
     }
 
-    public void Recolectar()
-    {
-        score++;
-        ActualizarTextoScore();
-
-        if (mensajeRecoleccion != null)
-            StartCoroutine(MostrarMensaje());
-
-        if (score >= totalColeccionables)
-            Victoria();
-    }
+public void Recolectar()
+{
+    score++;
+    ActualizarTextoScore();
+}
 
     void ActualizarTextoScore()
     {
@@ -92,42 +77,18 @@ public class UIManager : MonoBehaviour
 
     float porcentaje = tiempoRestante / tiempoTotal;
     barraTimer.fillAmount = porcentaje;
-
-    // Usamos Color32 para asegurar el Alpha (el último número, 255 es totalmente visible)
     if (porcentaje > 0.5f)
     {
-        barraTimer.color = new Color32(175, 255, 170, 255); // Verde claro
+        barraTimer.color = new Color32(175, 255, 170, 255); 
     }
     else if (porcentaje > 0.25f)
     {
-        barraTimer.color = new Color32(57, 255, 20, 255);  // Verde oscuro / Amarillo
+        barraTimer.color = new Color32(57, 255, 20, 255);  
     }
     else
     {
-        barraTimer.color = new Color32(255, 51, 51, 255);  // Rojo crítico
+        barraTimer.color = new Color32(255, 51, 51, 255); 
     }
 }
 
-    IEnumerator MostrarMensaje()
-    {
-        mensajeRecoleccion.gameObject.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
-        mensajeRecoleccion.gameObject.SetActive(false);
-    }
-
-    void Victoria()
-    {
-        juegoTerminado = true;
-        if (panelVictoria != null) panelVictoria.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
-
-    void GameOver()
-    {
-        juegoTerminado = true;
-        if (panelGameOver != null) panelGameOver.SetActive(true);
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
-    }
 }

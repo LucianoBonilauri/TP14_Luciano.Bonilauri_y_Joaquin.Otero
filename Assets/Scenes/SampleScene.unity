@@ -3234,13 +3234,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 456756838}
-  totalColeccionables: 10
+  totalColeccionables: 5
   timerText: {fileID: 0}
   barraTimer: {fileID: 1471430844}
   tiempoTotal: 120
-  panelVictoria: {fileID: 0}
-  panelGameOver: {fileID: 0}
-  mensajeRecoleccion: {fileID: 0}
 --- !u!4 &1973336058
 Transform:
   m_ObjectHideFlags: 0
