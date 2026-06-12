@@ -26,14 +26,14 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        if (juegoTerminado)
+        if (juegoTerminado && Input.GetKeyDown(KeyCode.R))
         {
-            if (Input.GetKeyDown(KeyCode.R))
-                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             return;
         }
 
-        if (!timerActivo) return;
+        if (!timerActivo || juegoTerminado) return;
 
         timer -= Time.deltaTime;
 

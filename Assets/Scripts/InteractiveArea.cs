@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InteractiveArea : MonoBehaviour
 {
@@ -20,28 +18,26 @@ public class InteractiveArea : MonoBehaviour
         }
     }
 
-private void OnTriggerEnter(Collider other)
-{
-    if (other.gameObject.CompareTag("Coleccionable"))
+    private void OnTriggerEnter(Collider other)
     {
-        other.gameObject.tag = "Untagged";
-        score++;
-
-        Debug.Log("Score actual: " + score + " / Total: " + uiManager.totalColeccionables);
-
-        if (uiManager != null)
+        if (other.gameObject.CompareTag("Coleccionable"))
         {
-            uiManager.UpdateScore(score);
+            other.gameObject.tag = "Untagged";
+            score++;
 
-            if (score >= uiManager.totalColeccionables)
+            if (uiManager != null)
             {
-                uiManager.MostrarPantallaWin();
-                Time.timeScale = 0;
-            }
-        }
+                uiManager.UpdateScore(score);
 
-        Destroy(other.gameObject);
+                if (score >= uiManager.totalColeccionables)
+                {
+                    uiManager.MostrarPantallaWin();
+                    Time.timeScale = 0;
+                }
+            }
+
+            Debug.Log("Recolectado: " + other.gameObject.name);
+            Destroy(other.gameObject);
+        }
     }
-}
-    
 }

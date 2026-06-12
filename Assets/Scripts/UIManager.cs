@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class UIManager : MonoBehaviour
     [Header("Pantalla de inicio")]
     public GameObject panelInicio;
 
+    private bool juegoTerminado = false;
+    private bool juegoIniciado = false;
+
     void Start()
     {
         UpdateScore(0);
@@ -31,13 +35,21 @@ public class UIManager : MonoBehaviour
 
     void Update()
     {
-        if (panelInicio != null && panelInicio.activeSelf)
+        if (!juegoIniciado && panelInicio != null && panelInicio.activeSelf)
         {
             if (Input.anyKeyDown)
             {
                 panelInicio.SetActive(false);
+                juegoIniciado = true;
                 Time.timeScale = 1;
             }
+            return;
+        }
+
+        if (juegoTerminado && Input.GetKeyDown(KeyCode.R))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 
@@ -76,11 +88,13 @@ public class UIManager : MonoBehaviour
     {
         if (panelWin != null)
             panelWin.SetActive(true);
+        juegoTerminado = true;
     }
 
     public void MostrarPantallaGameOver()
     {
         if (panelGameOver != null)
             panelGameOver.SetActive(true);
+        juegoTerminado = true;
     }
 }
