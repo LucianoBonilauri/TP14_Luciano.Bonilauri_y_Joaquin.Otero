@@ -1,94 +1,77 @@
-﻿using System.Collections;
-using UnityEngine;
-using UnityEngine.UI; 
+﻿using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager Instance;
-
     [Header("Score")]
     public TextMeshProUGUI scoreText;
     public int totalColeccionables = 10;
 
     [Header("Timer")]
     public TextMeshProUGUI timerText;
-    public Image barraTimer; 
-    public float tiempoTotal = 120f;
-
-
-    private int score = 0;
-    private float tiempoRestante;
-    private bool juegoTerminado = false;
-
-    void Awake()
-    {
-        if (Instance == null) Instance = this;
-        else Destroy(gameObject);
-    }
+    public Image barraTimer;
+    public float tiempoTotal = 60f;
 
     void Start()
     {
-        tiempoRestante = tiempoTotal;
-        ActualizarTextoScore();
+        UpdateScore(0);
+        UpdateTimer(tiempoTotal);
     }
 
-    void Update()
-    {
-        if (juegoTerminado) return;
-
-        tiempoRestante -= Time.deltaTime;
-
-        if (tiempoRestante <= 0)
-        {
-            tiempoRestante = 0;
-        }
-
-        ActualizarTextoTimer();
-        ActualizarBarra(); 
-    }
-
-public void Recolectar()
-{
-    score++;
-    ActualizarTextoScore();
-}
-
-    void ActualizarTextoScore()
+    public void UpdateScore(int score)
     {
         if (scoreText != null)
+        {
             scoreText.text = score + " / " + totalColeccionables;
+        }
     }
 
-    void ActualizarTextoTimer()
+    public void UpdateTimer(float timer)
+    {
+        timer = Mathf.Clamp(timer, 0, tiempoTotal);
+
+        ActualizarTextoTimer(timer);
+        ActualizarBarraTimer(timer);
+    }
+
+    private void ActualizarTextoTimer(float timer)
     {
         if (timerText == null) return;
 
-        int minutos = Mathf.FloorToInt(tiempoRestante / 60);
-        int segundos = Mathf.FloorToInt(tiempoRestante % 60);
+        int minutos = Mathf.FloorToInt(timer / 60);
+        int segundos = Mathf.FloorToInt(timer % 60);
+
         timerText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
 
-        timerText.color = tiempoRestante < 20f ? Color.red : Color.white;
+        if (timer <= 20f)
+        {
+            timerText.color = Color.red;
+        }
+        else
+        {
+            timerText.color = Color.white;
+        }
     }
 
-   void ActualizarBarra()
-{
-    if (barraTimer == null) return;
+    private void ActualizarBarraTimer(float timer)
+    {
+        if (barraTimer == null) return;
 
-    float porcentaje = tiempoRestante / tiempoTotal;
-    barraTimer.fillAmount = porcentaje;
-    if (porcentaje > 0.5f)
-    {
-        barraTimer.color = new Color32(175, 255, 170, 255); 
-    }
-    else if (porcentaje > 0.25f)
-    {
-        barraTimer.color = new Color32(57, 255, 20, 255);  
-    }
-    else
-    {
-        barraTimer.color = new Color32(255, 51, 51, 255); 
-    }
-}
+        float porcentaje = Mathf.Clamp01(timer / tiempoTotal);
+        barraTimer.fillAmount = porcentaje;
 
+        if (porcentaje > 0.5f)
+        {
+            barraTimer.color = new Color32(175, 255, 170, 255);
+        }
+        else if (porcentaje > 0.25f)
+        {
+            barraTimer.color = new Color32(255, 220, 80, 255);
+        }
+        else
+        {
+            barraTimer.color = new Color32(255, 51, 51, 255);
+        }
+    }
 }
