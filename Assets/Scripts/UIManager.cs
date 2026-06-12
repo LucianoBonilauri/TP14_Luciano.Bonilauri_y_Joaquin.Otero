@@ -31,47 +31,30 @@ public class UIManager : MonoBehaviour
     {
         timer = Mathf.Clamp(timer, 0, tiempoTotal);
 
-        ActualizarTextoTimer(timer);
-        ActualizarBarraTimer(timer);
-    }
-
-    private void ActualizarTextoTimer(float timer)
-    {
-        if (timerText == null) return;
-
-        int minutos = Mathf.FloorToInt(timer / 60);
-        int segundos = Mathf.FloorToInt(timer % 60);
-
-        timerText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
-
-        if (timer <= 20f)
+        if (timerText != null)
         {
-            timerText.color = Color.red;
+            int minutos = Mathf.FloorToInt(timer / 60);
+            int segundos = Mathf.FloorToInt(timer % 60);
+            timerText.text = string.Format("{0:00}:{1:00}", minutos, segundos);
         }
-        else
-        {
-            timerText.color = Color.white;
-        }
-    }
 
-    private void ActualizarBarraTimer(float timer)
-    {
-        if (barraTimer == null) return;
+        if (barraTimer != null)
+        {
+            float porcentaje = Mathf.Clamp01(timer / tiempoTotal);
+            barraTimer.fillAmount = porcentaje;
 
-        float porcentaje = Mathf.Clamp01(timer / tiempoTotal);
-        barraTimer.fillAmount = porcentaje;
-
-        if (porcentaje > 0.5f)
-        {
-            barraTimer.color = new Color32(175, 255, 170, 255);
-        }
-        else if (porcentaje > 0.25f)
-        {
-            barraTimer.color = new Color32(255, 220, 80, 255);
-        }
-        else
-        {
-            barraTimer.color = new Color32(255, 51, 51, 255);
+            if (porcentaje > 0.5f)
+            {
+                barraTimer.color = new Color32(175, 255, 170, 255);
+            }
+            else if (porcentaje > 0.25f)
+            {
+                barraTimer.color = new Color32(255, 220, 80, 255);
+            }
+            else
+            {
+                barraTimer.color = new Color32(255, 51, 51, 255);
+            }
         }
     }
 }
