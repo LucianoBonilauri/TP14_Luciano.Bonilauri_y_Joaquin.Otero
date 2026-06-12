@@ -20,21 +20,28 @@ public class InteractiveArea : MonoBehaviour
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+private void OnTriggerEnter(Collider other)
+{
+    if (other.gameObject.CompareTag("Coleccionable"))
     {
-        if (other.gameObject.CompareTag("Coleccionable"))
+        other.gameObject.tag = "Untagged";
+        score++;
+
+        Debug.Log("Score actual: " + score + " / Total: " + uiManager.totalColeccionables);
+
+        if (uiManager != null)
         {
-            other.gameObject.tag = "Untagged";
+            uiManager.UpdateScore(score);
 
-            score++;
-
-            if (uiManager != null)
+            if (score >= uiManager.totalColeccionables)
             {
-                uiManager.UpdateScore(score);
+                uiManager.MostrarPantallaWin();
+                Time.timeScale = 0;
             }
-
-            Debug.Log("Recolectado: " + other.gameObject.name);
-            Destroy(other.gameObject);
         }
+
+        Destroy(other.gameObject);
     }
+}
+    
 }
