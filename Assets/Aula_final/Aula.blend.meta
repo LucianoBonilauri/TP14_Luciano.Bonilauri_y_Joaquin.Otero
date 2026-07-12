@@ -93,7 +93,72 @@ ModelImporter:
     4300024: Piso
     4300026: Piso.001
     4300028: Pizarron
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: No Name
+    second: {fileID: 2100000, guid: 7905e98f271924830a4924f9560ef57f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: PISO
+    second: {fileID: 2100000, guid: 6d3577a85f6ce4b439d5464dc05192ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TECHO
+    second: {fileID: 2100000, guid: 36fe54518f985460daeb3103b93ad450, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base
+    second: {fileID: 2100000, guid: 7dadf9eedfd8c47a7a941ece07b1b7a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base.001
+    second: {fileID: 2100000, guid: c31a36aea9bdb4f068805dafce1c977b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base.002
+    second: {fileID: 2100000, guid: 6a3b4c9a38aa04a32a460bca5619d90e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: base.003
+    second: {fileID: 2100000, guid: 97f425ac199a94c8791e3dbbd77b0766, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bores
+    second: {fileID: 2100000, guid: 35b07c9f5492341e1a0c75f282882a70, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ladrillo
+    second: {fileID: 2100000, guid: 381cac7255f114d76881b55a0fad2da7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ladrillo.001
+    second: {fileID: 2100000, guid: b9e739e2442c84a32a18449087b90737, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ventanas
+    second: {fileID: 2100000, guid: 4eaf2e0b868f44fa8a66ef42f2bff508, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ventanas.001
+    second: {fileID: 2100000, guid: dc5963542a2a241e6b7167535957c3c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ventanas.002
+    second: {fileID: 2100000, guid: e04efc560323c42efbf889b707dbcd6c, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -133,7 +198,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
