@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class InteractiveArea : MonoBehaviour
 {
@@ -25,12 +23,17 @@ public class InteractiveArea : MonoBehaviour
         if (other.gameObject.CompareTag("Coleccionable"))
         {
             other.gameObject.tag = "Untagged";
-
             score++;
 
             if (uiManager != null)
             {
                 uiManager.UpdateScore(score);
+
+                if (score >= uiManager.totalColeccionables)
+                {
+                    uiManager.MostrarPantallaWin();
+                    Time.timeScale = 0;
+                }
             }
 
             Debug.Log("Recolectado: " + other.gameObject.name);

@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,18 +14,49 @@ public class UIManager : MonoBehaviour
     public Image barraTimer;
     public float tiempoTotal = 60f;
 
+    [Header("Pantallas de fin")]
+    public GameObject panelWin;
+    public GameObject panelGameOver;
+
+    [Header("Pantalla de inicio")]
+    public GameObject panelInicio;
+
+    private bool juegoTerminado = false;
+    private bool juegoIniciado = false;
+
     void Start()
     {
         UpdateScore(0);
         UpdateTimer(tiempoTotal);
+
+        if (panelInicio != null)
+            panelInicio.SetActive(true);
+    }
+
+    void Update()
+    {
+        if (!juegoIniciado && panelInicio != null && panelInicio.activeSelf)
+        {
+            if (Input.anyKeyDown)
+            {
+                panelInicio.SetActive(false);
+                juegoIniciado = true;
+                Time.timeScale = 1;
+            }
+            return;
+        }
+
+        if (juegoTerminado && Input.GetKeyDown(KeyCode.R))
+        {
+            Time.timeScale = 1;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
     }
 
     public void UpdateScore(int score)
     {
         if (scoreText != null)
-        {
             scoreText.text = score + " / " + totalColeccionables;
-        }
     }
 
     public void UpdateTimer(float timer)
@@ -44,17 +76,25 @@ public class UIManager : MonoBehaviour
             barraTimer.fillAmount = porcentaje;
 
             if (porcentaje > 0.5f)
-            {
                 barraTimer.color = new Color32(175, 255, 170, 255);
-            }
             else if (porcentaje > 0.25f)
-            {
                 barraTimer.color = new Color32(255, 220, 80, 255);
-            }
             else
-            {
                 barraTimer.color = new Color32(255, 51, 51, 255);
-            }
         }
+    }
+
+    public void MostrarPantallaWin()
+    {
+        if (panelWin != null)
+            panelWin.SetActive(true);
+        juegoTerminado = true;
+    }
+
+    public void MostrarPantallaGameOver()
+    {
+        if (panelGameOver != null)
+            panelGameOver.SetActive(true);
+        juegoTerminado = true;
     }
 }

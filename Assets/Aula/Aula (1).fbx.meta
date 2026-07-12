@@ -1,0 +1,178 @@
+fileFormatVersion: 2
+guid: d40e355f3c926a74d8efb91467be3dad
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Cube
+    100004: Cube.001
+    100006: Cube.002
+    100008: Cube.003
+    100010: Cube.004
+    100012: MESADA.002
+    100014: Pared
+    100016: Pared.001
+    100018: Pared.002
+    100020: Pared.003
+    100022: Piso
+    100024: Piso.001
+    100026: Pizarron
+    100028: ventana_chica.005
+    400000: //RootNode
+    400002: Cube
+    400004: Cube.001
+    400006: Cube.002
+    400008: Cube.003
+    400010: Cube.004
+    400012: MESADA.002
+    400014: Pared
+    400016: Pared.001
+    400018: Pared.002
+    400020: Pared.003
+    400022: Piso
+    400024: Piso.001
+    400026: Pizarron
+    400028: ventana_chica.005
+    2100000: base.001
+    2100002: ventanas
+    2100004: ladrillo
+    2100006: ladrillo.001
+    2100008: base.002
+    2100010: ventanas.001
+    2100012: base.003
+    2100014: ventanas.002
+    2100016: No Name
+    2100018: PISO
+    2100020: TECHO
+    2100022: base
+    2100024: bores
+    2100026: base.004
+    2100028: vidrios
+    2300000: Cube
+    2300002: Cube.001
+    2300004: Cube.002
+    2300006: Cube.003
+    2300008: Cube.004
+    2300010: MESADA.002
+    2300012: Pared
+    2300014: Pared.001
+    2300016: Pared.002
+    2300018: Pared.003
+    2300020: Piso
+    2300022: Piso.001
+    2300024: Pizarron
+    2300026: ventana_chica.005
+    3300000: Cube
+    3300002: Cube.001
+    3300004: Cube.002
+    3300006: Cube.003
+    3300008: Cube.004
+    3300010: MESADA.002
+    3300012: Pared
+    3300014: Pared.001
+    3300016: Pared.002
+    3300018: Pared.003
+    3300020: Piso
+    3300022: Piso.001
+    3300024: Pizarron
+    3300026: ventana_chica.005
+    4300000: Cube
+    4300002: Cube.001
+    4300004: Cube.002
+    4300006: Cube.003
+    4300008: Cube.004
+    4300010: MESADA.002
+    4300012: Pared
+    4300014: Pared.001
+    4300016: Pared.002
+    4300018: Pared.003
+    4300020: Piso
+    4300022: Piso.001
+    4300024: Pizarron
+    4300026: ventana_chica.005
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
