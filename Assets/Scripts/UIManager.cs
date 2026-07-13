@@ -17,6 +17,9 @@ public class UIManager : MonoBehaviour
     [Header("Cartel de interacción")]
     public GameObject cartelInteraccion;
 
+    [Header("Modo terror")]
+    public GameObject overlayOscuridad;
+
     [Header("Pantallas de fin")]
     public GameObject panelWin;
     public GameObject panelGameOver;
@@ -37,6 +40,9 @@ public class UIManager : MonoBehaviour
 
         if (cartelInteraccion != null)
             cartelInteraccion.SetActive(false);
+
+        if (overlayOscuridad != null)
+            overlayOscuridad.SetActive(false);
     }
 
     void Update()
@@ -94,6 +100,12 @@ public class UIManager : MonoBehaviour
     {
         if (cartelInteraccion != null)
             cartelInteraccion.SetActive(mostrar);
+    }
+
+    public void ActivarOverlayOscuridad(bool activar)
+    {
+        if (overlayOscuridad != null)
+            overlayOscuridad.SetActive(activar);
     }
 
     public void MostrarPantallaWin()

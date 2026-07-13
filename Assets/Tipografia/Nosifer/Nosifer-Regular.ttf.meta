@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: ed2f0c39212544aeaa6cf891a92ccb29
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Nosifer
+  fontNames:
+  - Nosifer
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 64cebdcde2cc14850919a13927f02be9, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
