@@ -14,6 +14,9 @@ public class UIManager : MonoBehaviour
     public Image barraTimer;
     public float tiempoTotal = 60f;
 
+    [Header("Cartel de interacción")]
+    public GameObject cartelInteraccion;
+
     [Header("Pantallas de fin")]
     public GameObject panelWin;
     public GameObject panelGameOver;
@@ -31,6 +34,9 @@ public class UIManager : MonoBehaviour
 
         if (panelInicio != null)
             panelInicio.SetActive(true);
+
+        if (cartelInteraccion != null)
+            cartelInteraccion.SetActive(false);
     }
 
     void Update()
@@ -82,6 +88,12 @@ public class UIManager : MonoBehaviour
             else
                 barraTimer.color = new Color32(255, 51, 51, 255);
         }
+    }
+
+    public void MostrarCartelInteraccion(bool mostrar)
+    {
+        if (cartelInteraccion != null)
+            cartelInteraccion.SetActive(mostrar);
     }
 
     public void MostrarPantallaWin()
