@@ -3,11 +3,12 @@
 public class InteractiveArea : MonoBehaviour
 {
     [Header("Referencias")]
-    public Camera camaraJugador;           // arrastrá la FPSCamera acá
+    public Camera camaraJugador;
     private UIManager uiManager;
 
     [Header("Configuración")]
     public float distanciaInteraccion = 3f;
+    public LayerMask capasIgnoradas; // asignar la layer "Player" acá
 
     public int score = 0;
     private GameObject objetoActual;
@@ -38,8 +39,9 @@ public class InteractiveArea : MonoBehaviour
     void DetectarColeccionable()
     {
         Ray ray = new Ray(camaraJugador.transform.position, camaraJugador.transform.forward);
+        int mascara = ~capasIgnoradas; // el "~" invierte: golpea todo MENOS lo que pusiste ahí
 
-        if (Physics.Raycast(ray, out RaycastHit hit, distanciaInteraccion))
+        if (Physics.Raycast(ray, out RaycastHit hit, distanciaInteraccion, mascara))
         {
             Debug.Log("Rayo pegó en: " + hit.collider.name + " | Tag: " + hit.collider.tag);
 
@@ -49,10 +51,6 @@ public class InteractiveArea : MonoBehaviour
                 uiManager?.MostrarCartelInteraccion(true);
                 return;
             }
-        }
-        else
-        {
-            Debug.Log("El rayo no pegó en nada");
         }
 
         objetoActual = null;
